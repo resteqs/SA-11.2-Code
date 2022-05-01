@@ -20,4 +20,28 @@ public class Knoten extends Baumelement{
     }
     return this;
     }
+    public Datenelement suchen(String schluessel){
+        if(delement.schluesselIstGleich(schluessel)){
+            return delement;
+        }else if(delement.schluesselIstGroesserAls(schluessel)){
+            return nachfolgerLinks.suchen(schluessel);
+        }else{
+            return nachfolgerRechts.suchen(schluessel);
+        }
+    }
+    public void preorder(){
+        delement.informationAusgeben();
+        nachfolgerLinks.preorder();
+        nachfolgerRechts.preorder();
+    }
+    public void inorder(){
+        nachfolgerLinks.inorder();
+        delement.informationAusgeben();
+        nachfolgerRechts.inorder();
+    }
+    public void postorder(){
+        nachfolgerLinks.postorder();
+        nachfolgerRechts.postorder();
+        delement.informationAusgeben();
+    }
 }

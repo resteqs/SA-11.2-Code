@@ -3,6 +3,18 @@ public class Abschluss extends Baumelement{
     
     }
     public Baumelement einfuegen (Datenelement datenNeu){
-        return new Knoten(datenNeu);
+        return new Knoten(datenNeu, this, this);
+    }
+    public Datenelement suchen (String schluessel){
+        return null;
+    }
+    public void preorder(){
+    
+    }
+    public void inorder(){
+    
+    }
+    public void postorder(){
+    
     }
 }
