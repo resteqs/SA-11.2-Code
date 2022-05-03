@@ -50,6 +50,31 @@ public class Matrix{
         }
         return -1;
     }
+    public void tiefensuche (String startknoten){
+        int startNum = knotenNummer(startknoten);
+        if(startNum > -1){
+            for(int i = 0; i < anzahlKnoten; i++){
+                besucht[i] = false;
+            }
+            besuchen(startNum);
+        }
+    }
+    public void besuchen(int aktuellerKnoten){
+        besucht[aktuellerKnoten] = true; // als besucht markieren
+        System.out.println(knoten[aktuellerKnoten].nameGeben()); //drucken
+        
+        for(int i = 0; i < anzahlKnoten; i++){
+            //für jeden Knoten aus der Liste, überprüfen wir
+            //ob er eine Kante mit aktuellen Knoten hat
+            if(matrix[aktuellerKnoten][i] > Integer.MIN_VALUE && besucht[i] == false)
+            // ist es der Fall und ist der Knoten unbesucht => rekursion
+            {
+                besuchen(i);
+            }
+        }
+        
+        System.out.println(knoten[aktuellerKnoten].nameGeben() + "abgeschlossen");
+    }
 }
 
 
