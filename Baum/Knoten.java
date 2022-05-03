@@ -13,7 +13,7 @@ public class Knoten extends Baumelement{
     public Baumelement einfuegen(Datenelement datenNeu){
     if(delement.istGleich(datenNeu)){
         System.out.println("Bereits vorhanden");
-    }else if(delement.istKleinerAls(delement)){
+    }else if(delement.istKleinerAls(datenNeu)){
         nachfolgerRechts = nachfolgerRechts.einfuegen(datenNeu);
     }else{
         nachfolgerLinks= nachfolgerLinks.einfuegen(datenNeu);
